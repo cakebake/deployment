@@ -1,0 +1,26 @@
+{
+  "name": "deployment",
+  "version": "0.0.0",
+  "description": "Atom SFTP/FTP automatic deployment package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cakebake/deployment.git"
+  },
+  "keywords": [
+    "sftp",
+    "ftp",
+    "deployment",
+    "sync",
+    "remote"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cakebake/deployment/issues"
+  },
+  "homepage": "https://github.com/cakebake/deployment#readme"
+}
