@@ -1,6 +1,6 @@
 {
   "name": "deployment",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Atom SFTP/FTP automatic deployment package",
   "main": "./lib/index",
   "scripts": {
