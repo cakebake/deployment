@@ -2,9 +2,11 @@
   "name": "deployment",
   "version": "0.0.3",
   "description": "Atom SFTP/FTP automatic deployment package",
-  "main": "index.js",
+  "main": "./lib/index",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "fix": "eslint . --fix",
+    "test": "apm test && eslint ."
   },
   "repository": {
     "type": "git",
@@ -17,10 +19,21 @@
     "sync",
     "remote"
   ],
-  "author": "",
+  "author": "Jens A. (cakebake)",
   "license": "MIT",
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
   "bugs": {
     "url": "https://github.com/cakebake/deployment/issues"
   },
-  "homepage": "https://github.com/cakebake/deployment#readme"
+  "homepage": "https://github.com/cakebake/deployment#readme",
+  "dependencies": {
+    "ftp": "0.3.10",
+    "lodash": "4.17.5",
+    "ssh2": "0.6.0"
+  },
+  "devDependencies": {
+    "standard": "^11.0.1"
+  }
 }
