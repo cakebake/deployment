@@ -1,9 +1,10 @@
 version: '2.1'
 services:
-  sftp:
-    image: atmoz/sftp:alpine
+  server:
+    build: ./server
     volumes:
       - ./share:/home/user/share
+      - ./server/ssh_host_rsa_key:/etc/ssh/ssh_host_ed25519_key
     working_dir: /home/user
     ports:
       - "2222:22"
