@@ -37,10 +37,10 @@ Bash into
 ---------
 
 ```
-docker exec -ti mock_sftp_1 /bin/bash
+docker exec -ti sftpserver /bin/bash
 ```
 
-> Container name is `mock_sftp_1`. Change it to your container name.
+> Container name is `sftpserver`. Change it to your container name.
 
 Stop
 ----

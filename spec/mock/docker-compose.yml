@@ -1,7 +1,8 @@
 version: '2.1'
 services:
-  server:
-    build: ./server
+  sftpserver:
+    container_name: sftpserver
+    image: atmoz/sftp:alpine
     volumes:
       - ./share:/home/user/share
       - ./server/ssh_host_rsa_key:/etc/ssh/ssh_host_ed25519_key
