@@ -1,0 +1,10 @@
+version: '2.1'
+services:
+  sftp:
+    image: atmoz/sftp:alpine
+    volumes:
+      - ./share:/home/user/share
+    working_dir: /home/user
+    ports:
+      - "2222:22"
+    command: user:password:::share
