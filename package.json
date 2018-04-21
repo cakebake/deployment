@@ -4,9 +4,11 @@
   "description": "Atom SFTP/FTP automatic deployment package",
   "main": "./lib/index",
   "scripts": {
+    "server-up": "cd ./spec/mock && docker-compose up -d",
+    "server-down": "cd ./spec/mock && docker-compose down",
     "lint": "eslint .",
     "fix": "eslint . --fix",
-    "test": "apm test && eslint ."
+    "test": "npm run server-up && apm test && npm run server-down && npm run lint"
   },
   "repository": {
     "type": "git",
