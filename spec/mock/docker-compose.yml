@@ -1,13 +1,45 @@
 version: '2.1'
 services:
+
   sftpserver:
     container_name: sftpserver
     image: atmoz/sftp:alpine
     volumes:
-      - ./share:/home/user/share
-      - ./server/ssh_host_rsa_key:/etc/ssh/ssh_host_ed25519_key
-      - ./server/ssh_client_rsa_key.pub:/home/user/.ssh/keys/ssh_client_rsa_key.pub:ro
+      - ./sftpserver/ssh_host_rsa_key:/etc/ssh/ssh_host_ed25519_key:ro
+      - ./sftpserver/ssh_client_rsa_key.pub:/home/user/.ssh/keys/ssh_client_rsa_key.pub:ro
     working_dir: /home/user
     ports:
       - "2222:22"
-    command: user:password:::share
+    command: user:password:1000:1000
+    depends_on:
+      - sharedvolume
+    volumes_from:
+      - sharedvolume
+
+  ftpserver:
+    container_name: ftpserver
+    image: fikipollo/vsftpd
+    environment:
+      FTP_USER: "user"
+      FTP_PASS: "password"
+      FTP_UID: 1000
+      ONLY_UPLOAD: "NO"
+      PASV_ENABLE: "YES"
+      PASV_ADDRESS: "127.0.0.1"
+      PASV_MIN: 21200
+      PASV_MAX: 21210
+    working_dir: /home/user
+    ports:
+      - "2121:21"
+      - "21200-21210:21200-21210"
+    depends_on:
+      - sharedvolume
+    volumes_from:
+      - sharedvolume
+
+  sharedvolume:
+    image: busybox
+    container_name: sharedvolume
+    volumes:
+      - ./sharedvolume:/home/user/readwrite
+      - ./sharedvolume:/home/user/readonly:ro

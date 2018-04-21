@@ -1,22 +1,23 @@
 SFTP/FTP Server
 ===============
 
-Test server.
+Users are uid=1000 gid=1000 (configure in docker-compose.yml)
 
 ### SFTP access
 
-user:password@localhost:2222
+-	**Host:** `localhost`
+-	**Port:** `2222`
+-	**User:** `user`
+-	**Pass:** `password`
+-	**Key:** `./sftpserver/ssh_client_rsa_key`
 
 ### FTP access
 
-...
-
-Build
------
-
-```
-docker-compose build
-```
+-	**Host:** `localhost`
+-	**Mode:** `passive`
+-	**Port:** `2121`
+-	**User:** `user`
+-	**Pass:** `password`
 
 Run
 ---
@@ -37,10 +38,9 @@ Bash into
 ---------
 
 ```
+docker exec -ti ftpserver /bin/bash
 docker exec -ti sftpserver /bin/bash
 ```
-
-> Container name is `sftpserver`. Change it to your container name.
 
 Stop
 ----
