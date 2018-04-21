@@ -28,6 +28,9 @@ services:
       PASV_ADDRESS: "127.0.0.1"
       PASV_MIN: 21200
       PASV_MAX: 21210
+    volumes:
+      - ./ftpserver/vsftpd.pem:/etc/vsftpd/vsftpd.pem:ro
+      - ./ftpserver/vsftpd.conf:/etc/vsftpd/vsftpd.conf_or:ro
     working_dir: /home/user
     ports:
       - "2121:21"

@@ -1,5 +1,5 @@
-SFTP/FTP Server
-===============
+Docker SFTP/FTP/FTPS Server
+===========================
 
 Users are uid=1000 gid=1000 (configure in docker-compose.yml)
 
@@ -11,13 +11,22 @@ Users are uid=1000 gid=1000 (configure in docker-compose.yml)
 -	**Pass:** `password`
 -	**Key:** `./sftpserver/ssh_client_rsa_key`
 
-### FTP access
+### FTP/FTPS access
 
 -	**Host:** `localhost`
 -	**Mode:** `passive`
 -	**Port:** `2121`
 -	**User:** `user`
 -	**Pass:** `password`
+
+> login with or without ssl/tls
+
+Config
+------
+
+```
+vim ./docker-compose.yml
+```
 
 Run
 ---
@@ -38,8 +47,8 @@ Bash into
 ---------
 
 ```
-docker exec -ti ftpserver /bin/bash
-docker exec -ti sftpserver /bin/bash
+docker exec -ti ftpserver /bin/sh
+docker exec -ti sftpserver /bin/sh
 ```
 
 Stop
